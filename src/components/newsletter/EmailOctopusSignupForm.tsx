@@ -70,9 +70,9 @@ const EmailOctopusSignupForm: React.FC<
         </Button>
       </form>
 
-      <p className={'mt-2 text-center text-sm md:text-xs'}>
+      {/* <p className={'mt-2 text-center text-sm md:text-xs'}>
         Subscribe to our newsletter to receive updates
-      </p>
+      </p> */}
     </>
   );
 };

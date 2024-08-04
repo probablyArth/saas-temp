@@ -18,7 +18,9 @@ import configuration from '~/configuration';
 const SiteHeader = () => {
   const signOut = useSignOut();
   const userSession = useUserSession();
-  const canSwitchTheme = configuration.features.enableThemeSwitcher;
+
+  // ThemeSwitcher
+  // const canSwitchTheme = configuration.features.enableThemeSwitcher;
 
   return (
     <Container>
@@ -32,11 +34,12 @@ const SiteHeader = () => {
         </div>
 
         <div className={'flex flex-1 items-center justify-end space-x-4'}>
-          <div className={'items-center flex'}>
+          {/* Theme switch logo */}
+          {/* <div className={'items-center flex'}>
             <If condition={canSwitchTheme}>
               <DarkModeToggle />
             </If>
-          </div>
+          </div> */}
 
           <If condition={userSession} fallback={<AuthButtons />}>
             {(session) => (

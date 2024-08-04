@@ -32,7 +32,7 @@ function Footer() {
 
               <div className={'flex text-xs text-gray-500 dark:text-gray-400'}>
                 <p>
-                  © Copyright {YEAR} {configuration.site.siteName}.
+                  © Copyright {YEAR} 
                   &nbsp;<Trans i18nKey={'common:allRightReserved'} />
                 </p>
               </div>
@@ -46,7 +46,7 @@ function Footer() {
               ' w-full lg:flex-row lg:justify-end'
             }
           >
-            <div>
+            {/* <div>
               <div className={'flex flex-col space-y-4'}>
                 <FooterSectionHeading>
                   <Trans i18nKey={'common:about'} />
@@ -70,9 +70,9 @@ function Footer() {
                   </FooterLink>
                 </FooterSectionList>
               </div>
-            </div>
+            </div> */}
 
-            <div>
+            {/* <div>
               <div className={'flex flex-col space-y-4'}>
                 <FooterSectionHeading>
                   <Trans i18nKey={'common:product'} />
@@ -96,7 +96,7 @@ function Footer() {
                   </FooterLink>
                 </FooterSectionList>
               </div>
-            </div>
+            </div> */}
 
             <div>
               <div className={'flex flex-col space-y-4'}>
@@ -124,7 +124,7 @@ function Footer() {
               </div>
             </div>
 
-            <NewsletterSignup />
+            {/* <NewsletterSignup /> */}
           </div>
         </div>
       </Container>

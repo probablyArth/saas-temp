@@ -96,7 +96,7 @@ export default function Home() {
       <Container>
         <div
           className={
-            'flex flex-col items-center justify-center space-y-24 py-16'
+            'flex flex-col items-center justify-center space-y-24'
           }
         >
           <div
@@ -112,23 +112,26 @@ export default function Home() {
               <Heading type={2}>
                 <Trans i18nKey={'home:bestTool'} />
               </Heading>
-              <Image
-            priority
-            className={
-              'shadow-[0_0_1000px_0] rounded-2xl' +
-              ' shadow-primary/40 animate-in fade-in' +
-              ' zoom-in-50 delay-300 duration-1000 ease-out fill-mode-both'
-            }
-            width={3688}
-            height={2824}
-            src={`/assets/images/chatgpt.gif`}
-            alt={`App Image`}
-          />
+
+              {/* <Image
+                priority
+                className={
+                  'shadow-[0_0_1000px_0] rounded-2xl' +
+                  ' shadow-primary/40 animate-in fade-in' +
+                  ' zoom-in-50 delay-300 duration-1000 ease-out fill-mode-both'
+                }
+                width={3688}
+                height={2824}
+                src={`/assets/images/chatgpt.gif`}
+                alt={`App Image`}
+              />
 
               <SubHeading as={'h3'}>
                 <Trans i18nKey={'home:unbeatableFeatures'} />
-              </SubHeading>
+              </SubHeading> */}
+
             </div>
+
           </div>
 
           <div>
@@ -177,7 +180,7 @@ export default function Home() {
 
               <div className={'flex flex-col space-y-2'}>
                 <FeatureIcon>
-                  <PaintBrushIcon className={'h-5'} />
+                  <DocumentIcon className={'h-5'} />
                 </FeatureIcon>
 
                 <h4 className={'text-lg font-semibold'}>
@@ -221,7 +224,8 @@ export default function Home() {
         </div>
       </Container>
 
-      <Container>
+      {/* Feature with Images */}
+      {/* <Container>
         <div className={'flex flex-col space-y-4'}>
           <FeatureShowcaseContainer>
             <LeftFeatureContainer>
@@ -301,9 +305,7 @@ export default function Home() {
             </RightFeatureContainer>
           </FeatureShowcaseContainer>
         </div>
-      </Container>
-
-      <Divider />
+      </Container> */}
 
       <Container>
         <div
@@ -393,17 +395,17 @@ function FeatureShowcaseContainer(props: React.PropsWithChildren) {
   );
 }
 
-function LeftFeatureContainer(props: React.PropsWithChildren) {
-  return (
-    <div className={'flex flex-col space-y-8 w-full lg:w-6/12'}>
-      {props.children}
-    </div>
-  );
-}
+// function LeftFeatureContainer(props: React.PropsWithChildren) {
+//   return (
+//     <div className={'flex flex-col space-y-8 w-full lg:w-6/12'}>
+//       {props.children}
+//     </div>
+//   );
+// }
 
-function RightFeatureContainer(props: React.PropsWithChildren) {
-  return <div className={'flex flex-col space-y-8 w-full lg:w-6/12'}>{props.children}</div>;
-}
+// function RightFeatureContainer(props: React.PropsWithChildren) {
+//   return <div className={'flex flex-col space-y-8 w-full lg:w-6/12'}>{props.children}</div>;
+// }
 
 function MainCallToActionButton() {
   return (
