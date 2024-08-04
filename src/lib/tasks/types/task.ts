@@ -2,9 +2,8 @@ interface Task {
   id: number;
   name: string;
   organizationId: number;
-  dueDate: string;
   done: boolean;
-  description: string | null;
+  pdf_path: string;
 }
 
 export default Task;

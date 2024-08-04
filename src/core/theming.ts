@@ -12,11 +12,12 @@ export const LIGHT_THEME_CLASSNAME = `light`;
 export const SYSTEM_THEME_CLASSNAME = 'system';
 
 export function getStoredTheme() {
-  try {
-    return getCookie(THEME_KEY) ?? DEFAULT_THEME;
-  } catch (e) {
-    return DEFAULT_THEME;
-  }
+  return LIGHT_THEME_CLASSNAME;
+  // try {
+  //   return getCookie(THEME_KEY) ?? DEFAULT_THEME;
+  // } catch (e) {
+  //   return DEFAULT_THEME;
+  // }
 }
 
 export function setTheme(theme: string | null) {

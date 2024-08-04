@@ -1,33 +1,33 @@
-'use client'
+'use client';
 
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { startTransition, useTransition } from "react";
-import { formatDistance } from "date-fns";
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { startTransition, useTransition } from 'react';
+import { formatDistance } from 'date-fns';
 
-import { ColumnDef } from "@tanstack/react-table";
-import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
+import { ColumnDef } from '@tanstack/react-table';
+import { EllipsisVerticalIcon } from '@heroicons/react/24/outline';
 
-import type Task from "~/lib/tasks/types/task";
+import type Task from '~/lib/tasks/types/task';
 
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuItem,
-  DropdownMenuContent
-} from "~/core/ui/Dropdown";
+  DropdownMenuContent,
+} from '~/core/ui/Dropdown';
 
-import DataTable from "~/core/ui/DataTable";
-import IconButton from "~/core/ui/IconButton";
-import Badge from "~/core/ui/Badge";
-import If from "~/core/ui/If";
-import Trans from "~/core/ui/Trans";
+import DataTable from '~/core/ui/DataTable';
+import IconButton from '~/core/ui/IconButton';
+import Badge from '~/core/ui/Badge';
+import If from '~/core/ui/If';
+import Trans from '~/core/ui/Trans';
 
-import { deleteTaskAction, updateTaskAction } from "~/lib/tasks/actions";
-import useCsrfToken from "~/core/hooks/use-csrf-token";
-import Modal from "~/core/ui/Modal";
-import Button from "~/core/ui/Button";
-import { useTranslation } from "react-i18next";
+import { deleteTaskAction, updateTaskAction } from '~/lib/tasks/actions';
+import useCsrfToken from '~/core/hooks/use-csrf-token';
+import Modal from '~/core/ui/Modal';
+import Button from '~/core/ui/Button';
+import { useTranslation } from 'react-i18next';
 
 function TasksTable(
   props: React.PropsWithChildren<{
@@ -45,58 +45,21 @@ function TasksTable(
       header: t('task:taskNameLabel'),
       cell: ({ row }) => {
         const task = row.original;
-  
+
         return (
           <Link className={'hover:underline'} href={'tasks/' + task.id}>
             {task.name}
           </Link>
-        )
-      }
+        );
+      },
     },
-    {
-      header: t('task:taskDescriptionLabel'),
-      id: 'description',
-      cell: ({ row }) => {
-        const task = row.original;
-        const length = task.description?.length ?? 0;
-  
-        return (
-          <span className={'truncate max-w-[50px]'}>
-            {length > 0 ? task.description : '_'}
-          </span>
-        )
-      }
-    },
-    {
-      header: t('task:taskDueDateLabel'),
-      id:'dueDate',
-      cell: ({ row }) => {
-        const task = row.original;
-  
-        const dueDate = formatDistance(new Date(task.dueDate), new Date(), {
-          addSuffix: true,
-        });
-  
-        return (
-          <If
-            condition={task.done}
-            fallback={<span className={'capitalize'}>{dueDate}</span>}
-          >
-            <div className={'inline-flex'}>
-              <Badge size={'small'} color={'success'}>
-                <Trans i18nKey={'task:doneTaskLabel'} />
-              </Badge>
-            </div>
-          </If>
-        )
-      }
-    },
+
     {
       header: '',
       id: 'actions',
       cell: ({ row }) => {
         const task = row.original;
-  
+
         return (
           <div className={'flex justify-end'}>
             <DropdownMenu>
@@ -105,7 +68,7 @@ function TasksTable(
                   <EllipsisVerticalIcon className="w-5" />
                 </IconButton>
               </DropdownMenuTrigger>
-  
+
               <DropdownMenuContent
                 collisionPadding={{
                   right: 20,
@@ -116,15 +79,15 @@ function TasksTable(
                     <Trans i18nKey={'task:viewTaskLabel'} />
                   </Link>
                 </DropdownMenuItem>
-  
+
                 <UpdateStatusMenuItem task={task} />
                 <DeleteTaskMenuItem task={task} />
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
         );
-      }
-    }
+      },
+    },
   ];
 
   return (
@@ -137,7 +100,7 @@ function TasksTable(
       data={props.tasks}
       columns={TABLE_COLUMNS}
     />
-  )
+  );
 }
 
 function DeleteTaskMenuItem({ task }: { task: Task }) {
@@ -150,7 +113,7 @@ function DeleteTaskMenuItem({ task }: { task: Task }) {
         task={task.name}
         onConfirm={() => {
           startTransition(async () => {
-            await deleteTaskAction({ taskId: task.id});
+            await deleteTaskAction({ taskId: task.id });
           });
         }}
       >
@@ -159,13 +122,13 @@ function DeleteTaskMenuItem({ task }: { task: Task }) {
         </span>
       </ConfirmDeleteTaskModal>
     </DropdownMenuItem>
-  )
+  );
 }
 
 function UpdateStatusMenuItem({
   task,
 }: React.PropsWithChildren<{
-  task: Task,
+  task: Task;
 }>) {
   const { t } = useTranslation('task');
   const [isPending, startTransition] = useTransition();
@@ -181,9 +144,9 @@ function UpdateStatusMenuItem({
             task: {
               id: task.id,
               done: !task.done,
-            }
-          })
-        })
+            },
+          });
+        });
       }}
     >
       {action}
@@ -196,8 +159,8 @@ function ConfirmDeleteTaskModal({
   onConfirm,
   task,
 }: React.PropsWithChildren<{
-  task: string,
-  onConfirm: () => void,
+  task: string;
+  onConfirm: () => void;
 }>) {
   return (
     <Modal heading={'Deleting Task'} Trigger={children}>

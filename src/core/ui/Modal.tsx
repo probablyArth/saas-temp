@@ -27,12 +27,13 @@ type Props = React.PropsWithChildren<
   {
     heading: string | React.ReactNode;
     closeButton?: boolean;
+    defaultOpen?: boolean;
   } & (ControlledOpenProps | TriggerProps)
 >;
 
 const Modal: React.FC<Props> & {
   CancelButton: typeof CancelButton;
-} = ({ closeButton, heading, children, ...props }) => {
+} = ({ closeButton, heading, children, defaultOpen, ...props }) => {
   const isControlled = 'isOpen' in props;
   const useCloseButton = closeButton ?? true;
   const Trigger = ('Trigger' in props && props.Trigger) || null;
@@ -50,7 +51,7 @@ const Modal: React.FC<Props> & {
         {wrapperProps.children}
       </Dialog>
     ) : (
-      <Dialog>{wrapperProps.children}</Dialog>
+      <Dialog defaultOpen={defaultOpen}>{wrapperProps.children}</Dialog>
     );
 
   return (

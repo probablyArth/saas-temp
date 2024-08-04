@@ -44,6 +44,7 @@ import {
 import If from '~/core/ui/If';
 import GlobalRole from '~/core/session/types/global-role';
 import useUser from '~/core/hooks/use-user';
+import { useParams } from 'next/navigation';
 
 const ProfileDropdown: React.FCC<{
   userSession: Maybe<UserSession>;

@@ -1,45 +1,18 @@
-import loadDynamic from 'next/dynamic';
+'use client';
+import { useParams, useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
-import AppHeader from './components/AppHeader';
-import { withI18n } from '~/i18n/with-i18n';
-import Spinner from '~/core/ui/Spinner';
-import Trans from '~/core/ui/Trans';
-import { PageBody } from '~/core/ui/Page';
+const OrgHome = () => {
+  const router = useRouter();
+  const params = useParams();
+  router.push(`/dashboard/${params.organization}/tasks`);
+  useEffect(() => {}, []);
 
-const DashboardDemo = loadDynamic(() => import('./components/DashboardDemo'), {
-  ssr: false,
-  loading: () => (
-    <div
-      className={
-        'flex flex-1 items-center h-full justify-center flex-col space-y-4'
-      }
-    >
-      <Spinner className={'text-primary'} />
-
-      <div>
-        <Trans i18nKey={'common:loading'} />
-      </div>
+  return (
+    <div>
+      <h1>Organization Home</h1>
     </div>
-  ),
-});
-
-export const metadata = {
-  title: 'Dashboard',
+  );
 };
 
-function DashboardPage() {
-  return (
-    <>
-      <AppHeader
-        title={<Trans i18nKey={'common:dashboardTabLabel'} />}
-        description={<Trans i18nKey={'common:dashboardTabDescription'} />}
-      />
-
-      <PageBody>
-        <DashboardDemo />
-      </PageBody>
-    </>
-  );
-}
-
-export default withI18n(DashboardPage);
+export default OrgHome;

@@ -19,7 +19,8 @@ enum Themes {
 const configuration = {
   site: {
     name: 'LRA SaaS Starter Kit',
-    description: 'Launch your saas business in minutes with this all-in-one starter kit for Nextjs.',
+    description:
+      'Launch your saas business in minutes with this all-in-one starter kit for Nextjs.',
     themeColor: '#ffffff',
     themeColorDark: '#0a0a0a',
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
@@ -30,7 +31,7 @@ const configuration = {
     locale: process.env.NEXT_PUBLIC_DEFAULT_LOCALE,
     // Supported languages: add more and create folder in public/locales
     languages: ['en', 'es', 'fr'],
-    logoUrl: "/assets/images/logo.svg"
+    logoUrl: '/assets/images/logo.svg',
   },
   auth: {
     // ensure this is the same as your Supabase project. By default - it's true
@@ -80,6 +81,9 @@ const configuration = {
   },
   sentry: {
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  },
+  storage: {
+    bucket_name: 'deck-pdf',
   },
   stripe: {
     embedded: true,
@@ -206,7 +210,7 @@ export const siteNavigationLinks: NavigationLink[] = [
   {
     label: 'common:faq',
     path: '/faq',
-  }
+  },
 ];
 
 // Tab Navigation in logged in area
@@ -238,14 +242,6 @@ const paths = configuration.paths;
 
 export const NAVIGATION_CONFIG = (organization: string): NavigationConfig => ({
   items: [
-    {
-      label: 'common:dashboardTabLabel',
-      path: getPath(organization, ''),
-      Icon: ({ className }: { className: string }) => {
-        return <Squares2X2Icon className={className} />;
-      },
-      end: true,
-    },
     {
       label: 'common:tasksTabLabel',
       path: getPath(organization, 'tasks'),
