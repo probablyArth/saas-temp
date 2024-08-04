@@ -18,7 +18,7 @@ enum Themes {
 
 const configuration = {
   site: {
-    name: 'LRA SaaS Starter Kit',
+    name: 'DeckMatch',
     description:
       'Launch your saas business in minutes with this all-in-one starter kit for Nextjs.',
     themeColor: '#ffffff',
@@ -26,7 +26,7 @@ const configuration = {
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
     siteName: 'All-in-One SaaS Kit by Launch Ready Apps',
     twitterHandle: '',
-    githubHandle: 'cameronking4',
+    githubHandle: 'hiteshgautam',
     convertKitFormId: '',
     locale: process.env.NEXT_PUBLIC_DEFAULT_LOCALE,
     // Supported languages: add more and create folder in public/locales
@@ -195,22 +195,22 @@ export const siteNavigationLinks: NavigationLink[] = [
   //   label: 'common:blog',
   //   path: '/blog',
   // },
-  {
-    label: 'common:buyNow',
-    path: 'https://buy.stripe.com/7sIg2X2Qgbrt7KM000',
-  },
-  {
-    label: 'common:documentation',
-    path: '/docs',
-  },
-  {
-    label: 'common:pricing',
-    path: '/pricing',
-  },
-  {
-    label: 'common:faq',
-    path: '/faq',
-  },
+  // {
+  //   label: 'common:buyNow',
+  //   path: 'https://buy.stripe.com/7sIg2X2Qgbrt7KM000',
+  // },
+  // {
+  //   label: 'common:documentation',
+  //   path: '/docs',
+  // },
+  // {
+  //   label: 'common:pricing',
+  //   path: '/pricing',
+  // },
+  // {
+  //   label: 'common:faq',
+  //   path: '/faq',
+  // },
 ];
 
 // Tab Navigation in logged in area
