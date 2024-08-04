@@ -13,9 +13,9 @@ const AppHeader: React.FCC<{
       mobileNavigation={<MobileAppNavigation />}
     >
       {children}
-      <div className="w-40">
+      {/* <div className="w-40">
         <LanguageDropdownSwitcher />
-      </div>
+      </div> */}
     </PageHeader>
   );
 };
