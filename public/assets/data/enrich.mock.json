@@ -1,0 +1,60 @@
+{
+  "Company": {
+    "Company Name": "Holisticly Technologies, Inc.",
+    "Company Description": "Holisticly Technologies, Inc. is an innovative technology firm that focuses on providing comprehensive wellness solutions. The company leverages advanced technology to deliver personalized health and wellness plans to individuals and organizations, aiming to enhance overall well-being and productivity.",
+    "Employee Headcount": "Information not available from LinkedIn",
+    "Company Stage": "Early-stage Startup",
+    "Full Location": "New York, New York, United States",
+    "Industry Tags": ["HealthTech", "Wellness"],
+    "Founding Year": 2017,
+    "Website Link": "https://www.holisticly.co/",
+    "Additional Information": {
+      "Overview": {
+        "Technology": [
+          "Mobile Application",
+          "AI-driven Personalization",
+          "Telehealth Platform",
+          "Data Analytics",
+          "Machine Learning"
+        ],
+        "Traction": "Holisticly Technologies has partnered with over 100 organizations, impacting the lives of more than 50,000 employees. Their platform has received positive feedback for its user-friendly interface and effectiveness in improving wellness outcomes.",
+        "Problem": "The primary problem addressed by Holisticly Technologies is the lack of personalized, accessible, and effective wellness solutions in the marketplace.",
+        "Solution": "Holisticly Technologies offers a unique, AI-driven platform that tailors wellness programs to the specific needs of each user.",
+        "Future Goals": "Expanding market reach to international territories, enhancing AI capabilities, integrating with more wearable and health-tracking devices, and partnering with more organizations.",
+        "Market Size": "The wellness market is valued at over $4.5 trillion globally, with the corporate wellness sector estimated at $60 billion.",
+        "Revenue Model": "Subscription-based revenue model including monthly or yearly fees from organizations, premium features, and services offered to users.",
+        "Business Model": "Direct sales to organizations, strategic partnerships with health and wellness providers, and a scalable platform customizable for different clients.",
+        "Fundraising": "Raised $10 million in Series A funding round; currently raising Series B with a target of $20 million."
+      },
+      "Industry Sector Tags": ["HealthTech", "Wellness"],
+      "Sub-Industry Tags": [
+        "Digital Health",
+        "Preventive Healthcare",
+        "Mental Health"
+      ],
+      "Competitors": ["Headspace", "Calm", "BetterHelp", "Noom", "Talkspace"],
+      "Vertical": "Healthcare & Wellness"
+    }
+  },
+  "Founder Details": {
+    "Name": "Joshua Luckow",
+    "LinkedIn Profile Description": "An international and entrepreneurial executive with proven performance and visionary leadership.",
+    "Estimate the age": "Not available",
+    "Full Location": "Tucson, Arizona, United States",
+    "Gender": "Male",
+    "Founder's DNA": "Entrepreneurial executive with international experience.",
+    "Seasoned Founder": "Yes",
+    "Previous job titles": ["Founder", "CEO", "Executive Director"],
+    "Most experienced sector": "Health and Wellness",
+    "FAANG or reputed company mentioned": "No",
+    "Education": ["MBA"],
+    "Top 20 University of the world": "No",
+    "Universities attended": [
+      "University of Arizona, Eller College of Management"
+    ],
+    "Prior exits": ["Not available"],
+    "Patents": "Not available",
+    "Publications": "Not available",
+    "Any additional info helpful for investors": "Member of various health and wellness boards and initiatives."
+  }
+}

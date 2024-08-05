@@ -56,7 +56,8 @@ export function getTask(client: Client, id: number) {
 			name,
 			organizationId: organization_id,
       pdf_path,
-      done
+      done,
+      enrich
 			`,
     )
     .eq('id', id)
