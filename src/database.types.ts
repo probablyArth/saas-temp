@@ -159,6 +159,7 @@ export type Database = {
       tasks: {
         Row: {
           done: boolean;
+          enrich: Json | null;
           id: number;
           name: string;
           organization_id: number;
@@ -166,6 +167,7 @@ export type Database = {
         };
         Insert: {
           done?: boolean;
+          enrich?: Json | null;
           id?: number;
           name?: string;
           organization_id: number;
@@ -173,6 +175,7 @@ export type Database = {
         };
         Update: {
           done?: boolean;
+          enrich?: Json | null;
           id?: number;
           name?: string;
           organization_id?: number;
