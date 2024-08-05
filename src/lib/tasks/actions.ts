@@ -1,30 +1,33 @@
 'use server';
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath } from 'next/cache';
 
-import { createTask, updateTask, deleteTask } from "./database/mutations";
-import type Task from "./types/task";
-import { withSession } from "~/core/generic/actions-utils";
-import getSupabaseServerActionClient from "~/core/supabase/action-client";
+import { createTask, updateTask, deleteTask } from './database/mutations';
+import type Task from './types/task';
+import { withSession } from '~/core/generic/actions-utils';
+import getSupabaseServerActionClient from '~/core/supabase/action-client';
+import { Router } from 'next/router';
 
 type CreateTaskParams = {
   task: Omit<Task, 'id'>;
   csrfToken: string;
-}
+};
 
 export const createTaskAction = withSession(
   async (params: CreateTaskParams) => {
     const client = getSupabaseServerActionClient();
 
-    await createTask(client, params.task);
+    const res = await createTask(client, params.task);
 
     revalidatePath('/dashboard/[organization]/tasks', 'page');
-  }
+
+    return res;
+  },
 );
 
 type UpdateTaskParams = {
   task: Partial<Task> & Pick<Task, 'id'>;
-}
+};
 
 export const updateTaskAction = withSession(
   async (params: UpdateTaskParams) => {
@@ -36,12 +39,12 @@ export const updateTaskAction = withSession(
 
     revalidatePath(path, 'page');
     revalidatePath(`${path}/[task]`, 'page');
-  }
+  },
 );
 
 type DeleteTaskParams = {
   taskId: number;
-}
+};
 
 export const deleteTaskAction = withSession(
   async (params: DeleteTaskParams) => {
@@ -50,5 +53,5 @@ export const deleteTaskAction = withSession(
     await deleteTask(client, params.taskId);
 
     revalidatePath('/dashboard/[organization]/tasks', 'page');
-  }
+  },
 );

@@ -14,14 +14,17 @@ import useCurrentOrganization from '~/lib/organizations/hooks/use-current-organi
 import { createTaskAction } from '~/lib/tasks/actions';
 import useCsrfToken from '~/core/hooks/use-csrf-token';
 import { useUploadFile } from '~/lib/storage/upload';
+import { useRouter, useParams } from 'next/navigation';
 
 const TaskForm: React.FC = () => {
   const [isMutating, startTransition] = useTransition();
   const organization = useCurrentOrganization();
+  const params = useParams();
   const organizationId = organization?.id as number;
   const csrfToken = useCsrfToken();
   const { t } = useTranslation();
   const uploadFile = useUploadFile();
+  const router = useRouter();
 
   const onCreateTask: FormEventHandler<HTMLFormElement> = useCallback(
     async (event) => {
@@ -44,10 +47,24 @@ const TaskForm: React.FC = () => {
           done: false,
           pdf_path: (await uploadFile(pdf)).path,
         };
-        await createTaskAction({ task, csrfToken });
+        await createTaskAction({
+          task,
+          csrfToken,
+        }).then(async (r) => {
+          const res = await r;
+          if (
+            !!res.data &&
+            !!res.data[0] &&
+            typeof res.data[0].id === 'number'
+          ) {
+            router.push(
+              `/dashboard/${params.organization}/tasks/${res.data[0].id}`,
+            );
+          }
+        });
       });
     },
-    [csrfToken, organizationId, t, uploadFile],
+    [csrfToken, organizationId, t, uploadFile, params.organization, router],
   );
 
   return (

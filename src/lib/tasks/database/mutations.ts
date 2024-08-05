@@ -6,12 +6,15 @@ import { TASKS_TABLE } from '~/lib/db-tables';
 type Client = SupabaseClient<Database>;
 
 export function createTask(client: Client, task: Omit<Task, 'id'>) {
-  return client.from(TASKS_TABLE).insert({
-    name: task.name,
-    organization_id: task.organizationId,
-    done: task.done,
-    pdf_path: task.pdf_path,
-  });
+  return client
+    .from(TASKS_TABLE)
+    .insert({
+      name: task.name,
+      organization_id: task.organizationId,
+      done: task.done,
+      pdf_path: task.pdf_path,
+    })
+    .select('id');
 }
 
 export function updateTask(
