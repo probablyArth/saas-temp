@@ -7,7 +7,6 @@ function CreateTaskModal(props: React.PropsWithChildren) {
     <Modal
       heading={<Trans i18nKey={'task:createTaskLabel'} />}
       Trigger={props.children}
-      defaultOpen
     >
       <TaskForm />
     </Modal>
