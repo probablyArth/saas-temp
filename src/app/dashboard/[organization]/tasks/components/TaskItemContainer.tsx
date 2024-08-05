@@ -40,7 +40,7 @@ const TaskItemContainer: React.FC<{
   );
 
   return (
-    <form onSubmit={onUpdate}>
+    <form onSubmit={onUpdate} className="w-full">
       <div className={'flex flex-col space-y-4 max-w-xl'}>
         <Heading type={2}>{task.name}</Heading>
 
