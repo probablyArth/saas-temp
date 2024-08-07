@@ -31,7 +31,7 @@ const TaskItemEnrichContainer: FC<{ enrich: Json | null }> = ({ enrich }) => {
         <Heading type={4}>Enriching the deck</Heading>
         {text.success && <CopyButton content={text.text} />}
       </div>
-      <div className="h-full max-h-[65vh] rounded-sm flex flex-col items-center justify-center border-[1px] ">
+      <div className="h-[65vh] rounded-sm flex flex-col items-center justify-center border-[1px] ">
         {text.success ? (
           <pre className="w-full p-4 overflow-auto">{text.text}</pre>
         ) : (
