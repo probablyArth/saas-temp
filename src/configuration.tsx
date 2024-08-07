@@ -92,22 +92,21 @@ const configuration = {
       {
         name: 'Basic',
         description: 'Description of your Basic plan',
-        badge: `Up to 20 users`,
+        badge: `Up to 10 users`,
         features: [
-          'Basic Reporting',
-          'Up to 20 users',
-          '1GB for each user',
+          'Up to 40 Reports',
+          'Up to 10 users',
           'Chat Support',
         ],
         plans: [
           {
             name: 'Monthly',
-            price: '$9',
+            price: '$49',
             stripePriceId: 'price_1NNwYHI1i3VnbZTqI2UzaHIe',
           },
           {
             name: 'Yearly',
-            price: '$90',
+            price: '$550',
             stripePriceId: 'basic-plan-yr',
           },
         ],
@@ -118,20 +117,19 @@ const configuration = {
         recommended: true,
         description: 'Description of your Pro plan',
         features: [
-          'Advanced Reporting',
-          'Up to 50 users',
-          '5GB for each user',
+          'Up to 150 Reporting',
+          'Up to 20 users',
           'Chat and Phone Support',
         ],
         plans: [
           {
             name: 'Monthly',
-            price: '$29',
+            price: '$149',
             stripePriceId: 'pro-plan-mth',
           },
           {
             name: 'Yearly',
-            price: '$200',
+            price: '$1600',
             stripePriceId: 'pro-plan-yr',
           },
         ],
@@ -141,9 +139,8 @@ const configuration = {
         description: 'Description of your Premium plan',
         badge: ``,
         features: [
-          'Advanced Reporting',
+          'Unlimited Reporting',
           'Unlimited users',
-          '50GB for each user',
           'Account Manager',
         ],
         plans: [
