@@ -1,4 +1,7 @@
-import type { SupabaseClient } from '@supabase/supabase-js';
+import type {
+  PostgrestSingleResponse,
+  SupabaseClient,
+} from '@supabase/supabase-js';
 import type { Database } from '~/database.types';
 import { TASKS_TABLE } from '~/lib/db-tables';
 import Task from '../types/task';
@@ -52,11 +55,13 @@ export function getTask(client: Client, id: number) {
 			id,
 			name,
 			organizationId: organization_id,
-      done
+      pdf_path,
+      done,
+      enrich
 			`,
     )
     .eq('id', id)
-    .single();
+    .single() as unknown as PostgrestSingleResponse<Task>;
 
   return data;
 }
