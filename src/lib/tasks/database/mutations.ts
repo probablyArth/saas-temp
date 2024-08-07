@@ -18,7 +18,10 @@ export async function readJsonFile(filename: string) {
 
 type Client = SupabaseClient<Database>;
 
-export async function createTask(client: Client, task: Omit<Task, 'id'>) {
+export async function createTask(
+  client: Client,
+  task: Omit<Omit<Task, 'id'>, 'enrich'>,
+) {
   const jsonFile = await readJsonFile('./assets/data/enrich.mock.json');
 
   return client

@@ -9,7 +9,7 @@ import getSupabaseServerActionClient from '~/core/supabase/action-client';
 import { Router } from 'next/router';
 
 type CreateTaskParams = {
-  task: Omit<Task, 'id'>;
+  task: Omit<Omit<Task, 'id'>, 'enrich'>;
   csrfToken: string;
 };
 

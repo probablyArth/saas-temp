@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 import { Json } from '~/database.types';
 import Heading from '~/core/ui/Heading';
 import CopyButton from '../../components/CopyButton';
@@ -26,12 +26,12 @@ const TaskItemEnrichContainer: FC<{ enrich: Json | null }> = ({ enrich }) => {
   const text = useMemo(() => renderEnrichContent(), [enrich]);
 
   return (
-    <div className="flex flex-col w-full h-full gap-4 max-w-[50%]">
-      <div className="flex justify-between w-full items-center">
+    <div className="flex flex-col w-full h-[100%] gap-4 md:max-w-[50%]">
+      <div className="flex justify-between w-full items-center h-[10%]">
         <Heading type={4}>Enriching the deck</Heading>
         {text.success && <CopyButton content={text.text} />}
       </div>
-      <div className="h-[500px] rounded-sm flex flex-col items-center justify-center border-[1px]">
+      <div className="h-full max-h-[65vh] rounded-sm flex flex-col items-center justify-center border-[1px] ">
         {text.success ? (
           <pre className="w-full p-4 overflow-auto">{text.text}</pre>
         ) : (

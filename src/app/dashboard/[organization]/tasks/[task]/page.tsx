@@ -21,7 +21,7 @@ const TaskPage = ({ params }: Context) => {
   const task = data.task;
 
   return (
-    <div className="flex w-full gap-12">
+    <div className="flex flex-col md:flex-row w-full gap-12">
       <TaskItemContainer task={task} />
       <TaskItemEnrichContainer enrich={task.enrich} />
     </div>
